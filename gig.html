@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Do You Love Me, Ansu?</title>
+
+    <style>
+
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 28px;
+
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .container {
+            position: relative;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+
+
+            position: relative;
+        }
+
+        #noBtn {
+            background-color: #4CAF50;
+            color: white;
+
+
+            position: absolute;
+            left: 120px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
+        .heart {
+            position: absolute;
+
+            color: red;
+
+            font-size: 24px;
+            animation: float 1.5s ease-in-out forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            img {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>💖 Do You Love Me, Ansu? 💖</h1>
+
+<div class="container">
+
+    <button id="yesBtn" class="btn">Yes</button>
+
+    <button id="noBtn" class="btn">No</button> <!-- No button will remain clickable -->
+
+
+</div>
+
+
+
+
+<img src="https://i.ibb.co/0p18r7gW/happy-bhai.jpg" alt="happy-bhai">
+
+
+<script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+
+
+    yesBtn.addEventListener("click", function() {
+        noBtn.disabled = true;
+
+
+
+        for (let i = 0; i < 50; i++) {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            document.body.appendChild(heart);
+
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1500);
+        }
+    }
+    );
+    noBtn.addEventListener("click", function() {
+
+        noBtn.disabled = true;
+
+    });
+    function moveNoButton() {
+        const x = Math.random() * (window.innerWidth - 150);
+
+        const y = Math.random() * (window.innerHeight - 150);
+
+
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+    }
+
+    noBtn.addEventListener("mouseover", moveNoButton);
+
+
+</script>
+
+</body>
+</html>
